@@ -8,7 +8,7 @@
 
 ```cmd
 root@kali:~# cd /opt
-root@kali:~# wget "url"
+root@kali:~# wget "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh"
 root@kali:~# chmod +x RSAcrack.sh
 ```
 **Alias**
