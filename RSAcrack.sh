@@ -54,7 +54,7 @@ echo -e "$GreenLight ╚═════╝╚═╝  ╚═╝╚═╝  ╚═�
 }
 
 function main(){
-    echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:    $YellowLight./RSAcrack.sh rockyou.txt id_rsa$End"
+    echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight RSAcrack.sh rockyou.txt id_rsa$End"
 }
 
 check
@@ -78,10 +78,10 @@ fi
 while read password; do
     ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
-            echo -e "$GreenLight[$CyanLight*$GreenLight]$White Craking:$CyanLight  $key"
-            sleep 2
-            echo -e "$GreenLight[$CyanLight*$GreenLight]$White Wordlist:$CyanLight $wordlist"
-            sleep 2
+        	echo -e "$GreenLight[$CyanLight*$GreenLight]$White Craking:$CyanLight  $key"
+        	sleep 2
+        	echo -e "$GreenLight[$CyanLight*$GreenLight]$White Wordlist:$CyanLight $wordlist"
+        	sleep 2
             echo -e "$GreenLight[$Red+$GreenLight]$Red Password:$GreenLight $password"
             sleep 4
             exit 0
