@@ -4,7 +4,12 @@
 
 ![](/1.png)
 
-**Install / Run**
+**Run**
+```cmd
+root@kali:~# RSAcrack /usr/share/wordlists/rockyou.txt id_rsa
+```
+
+**Install**
 ```cmd
 root@kali:~# cd /opt
 root@kali:~# wget "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh"
