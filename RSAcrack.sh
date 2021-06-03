@@ -59,18 +59,19 @@ function main(){
 
 check
 banner
-main
 
 if [ ! -z $wordlist ]; then
     sleep 1
 else
+    main
     exit 0
 fi
 
 if [ ! -z $key ]; then
     chmod 600 $key &>/dev/null
     sleep 1
-else 
+else
+    main
     exit 0
 fi
 
@@ -87,3 +88,5 @@ while read password; do
         fi
 done < $1
 echo -e "$GreenLight[$Red$v1$GreenLight]$Red $v3 $White$v4$End"
+sleep 4
+exit 0
