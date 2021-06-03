@@ -23,4 +23,6 @@ root@kali:~# chmod +x RSAcrack.sh
 - Zsh ---------> `root@kali:~# echo "alias RSAcrack='/opt/RSAcrack.sh'" >> /root/.zshrc`
 - Powerlevel --> `root@kali:~# echo "alias RSAcrack='/opt/RSAcrack.sh'" >> /root/.p10k.zsh`
 
+(Close terminal and reopen again)
+
 ---
