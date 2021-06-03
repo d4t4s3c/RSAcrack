@@ -54,7 +54,7 @@ echo -e "$GreenLight ╚═════╝╚═╝  ╚═╝╚═╝  ╚═�
 }
 
 function main(){
-    echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight RSAcrack.sh rockyou.txt id_rsa$End"
+    echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight RSAcrack rockyou.txt id_rsa$End"
 }
 
 check
