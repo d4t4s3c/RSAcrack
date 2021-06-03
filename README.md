@@ -13,9 +13,8 @@ root@kali:~# RSAcrack /usr/share/wordlists/rockyou.txt id_rsa
 
 **Download / Install**
 ```cmd
-root@kali:~# cd /opt
-root@kali:~# wget "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh"
-root@kali:~# chmod +x RSAcrack.sh
+root@kali:~# wget "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh" -o /opt/RSAcrack.sh
+root@kali:~# chmod +x /opt/RSAcrack.sh
 ```
 
 **Add Alias**
