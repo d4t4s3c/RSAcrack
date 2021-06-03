@@ -2,7 +2,7 @@
 
 **Tool to brute force on a password protected id_rsa key**
 
-![](/02.png)
+![](/1.png)
 
 **Install / Run**
 ```cmd
