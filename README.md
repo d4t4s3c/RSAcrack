@@ -2,8 +2,6 @@
 
 **Tool to brute force on a password protected `id_rsa` key**
 
-![](/1.png)
-
 ![](/001.png)
 
 ---
