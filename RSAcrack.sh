@@ -51,10 +51,11 @@ echo -e "$GreenLight██║     ██████╔╝███████�
 echo -e "$GreenLight██║     ██╔══██╗██╔══██║██║     ██╔═██╗ $End";
 echo -e "$GreenLight╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗$End";
 echo -e "$GreenLight ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End";
+echo -e "$GreenLight[$Red+$GreenLight]$Red Author:$White   d4t4s3c$End";
 }
 
 function main(){
-    echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight RSAcrack rockyou.txt id_rsa$End"
+    echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight    RSAcrack rockyou.txt id_rsa$End"
 }
 
 check
