@@ -1,6 +1,6 @@
 # RSAcrack
 
-**Tool to brute force on a password protected `id_rsa` key**
+**`Brute force` tool which allows you to crack passwords from a password protected `id_rsa` key**
 
 ![](/001.png)
 
