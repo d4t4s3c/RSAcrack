@@ -87,7 +87,7 @@ while read password; do
               sleep 4
               exit 0
         fi
-done < $1
+done < $wordlist
 echo -e "$GreenLight[$Red$v1$GreenLight]$Red $v3 $White$v4$End"
 sleep 4
 exit 0
