@@ -77,7 +77,7 @@ else
 fi
 
 while read password; do
-    ssh-keygen -y -f $key -P $password &>/dev/null
+              ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
               echo -e "$GreenLight[$CyanLight*$GreenLight]$White Craking:$CyanLight  $key"
               sleep 2
