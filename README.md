@@ -2,7 +2,7 @@
 
 **`Brute force` tool to crack password of protected `id_rsa` key**
 
-![](/1.png)
+![](/screenshot.png)
 
 ---
 
