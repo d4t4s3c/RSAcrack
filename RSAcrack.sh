@@ -58,8 +58,12 @@ function main(){
     echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight    RSAcrack rockyou.txt id_rsa$End"
 }
 
-check
-banner
+function start(){
+    check
+    banner
+}
+
+start
 
 if [ ! -z $wordlist ]; then
     sleep 1
@@ -71,6 +75,8 @@ fi
 if [ ! -z $key ]; then
     chmod 600 $key &>/dev/null
     sleep 1
+    echo -e "$GreenLight[$YellowLight!$GreenLight]$White Status:   $YellowLight\e[5mRunning$End"
+    sleep 2
 else
     main
     exit 0
@@ -78,12 +84,13 @@ fi
 
 while read password; do
               ssh-keygen -y -f $key -P $password &>/dev/null
-        if [ $? -eq 0 ]; then
+         if [ $? -eq 0 ]; then
               echo -e "$GreenLight[$CyanLight*$GreenLight]$White Craking:$CyanLight  $key"
               sleep 2
               echo -e "$GreenLight[$CyanLight*$GreenLight]$White Wordlist:$CyanLight $wordlist"
               sleep 2
-              echo -e "$GreenLight[$Red+$GreenLight]$Red Password:$GreenLight $password"
+              f1=$(cat $wordlist | grep "^$password$" -n | cut -d: -f1)
+              echo -e "$GreenLight[$Red+$GreenLight]$Red Password:$GreenLight $password$Red Line: $GreenLight$f1"
               sleep 4
               exit 0
         fi
