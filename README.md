@@ -5,7 +5,7 @@
 ![](/1.png)
 
 * Run
-* 
+
 ```cmd
 root@kali:~# RSAcrack /usr/share/wordlists/rockyou.txt id_rsa
 ```
