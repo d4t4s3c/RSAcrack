@@ -53,16 +53,13 @@ function main(){
         echo -e "$GreenLight[$YellowLight$v5$GreenLight]$White Usage:$YellowLight    RSAcrack rockyou.txt id_rsa$End"
 }
 
-function start(){
+if [ ! -z $wordlist ]; then
         check
         banner
-}
-
-start
-
-if [ ! -z $wordlist ]; then
         sleep 0.5
 else
+        check
+        banner
         main
         exit 0
 fi
