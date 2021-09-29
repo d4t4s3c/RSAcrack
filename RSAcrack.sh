@@ -83,13 +83,13 @@ else
 fi
 
 while read password; do
-                ssh-keygen -y -f $key -P $password &>/dev/null
+                /usr/bin/ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
                 echo -e "$White$var1$Red$var7$White$var2 $White$var13 $CyanLight$key"
                 sleep 2
                 echo -e "$White$var1$Red$var7$White$var2 $White$var14 $CyanLight$wordlist"
                 sleep 2
-                f1=$(cat $wordlist | grep "^$password$" -n | cut -d: -f1)
+                f1=$(/usr/bin/cat $wordlist | grep "^$password$" -n | cut -d: -f1)
                 echo -e "$White$var1$GreenLight$var8$White$var2 $Red$var15 $GreenLight$password$Red $var16 $GreenLight$f1"
                 sleep 4
                 exit 0
