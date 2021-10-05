@@ -76,7 +76,7 @@ else
 fi
 
 if [ ! -z $key ]; then
-        chmod 600 $key &>/dev/null
+        /usr/bin/chmod 600 $key &>/dev/null
 else
         main
         exit 0
@@ -89,7 +89,7 @@ while read password; do
                 sleep 2
                 echo -e "$White$var1$Red$var7$White$var2 $White$var14 $CyanLight$wordlist"
                 sleep 2
-                f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | cut -d: -f1)
+                f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d: -f1)
                 echo -e "$White$var1$GreenLight$var8$White$var2 $Red$var15 $GreenLight$password$Red $var16 $GreenLight$f1"
                 sleep 4
                 exit 0
