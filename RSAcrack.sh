@@ -105,7 +105,7 @@ siz="${BASH_REMATCH[1]}"
 while read password; do
                 line=$((line + 1))
                 progress=$((line * 100 / siz))
-                echo -ne "\r$YellowLight    $line/$fileSize ($progress%) ($password) $End"
+                echo -ne "\r$YellowLight    $line/$siz ($progress%) ($password) $End"
                 /usr/bin/ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
                 f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d: -f1)
