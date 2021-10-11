@@ -2,25 +2,19 @@
 
 **Brute Force - Passphrase - RSA PRIVATE KEY (id_rsa)**
 
-![](/01.png)
+![](/1.png)
 
-* Usage
+- <kbd>Use</kbd>
 
 ```cmd
 root@kali:~# RSAcrack /usr/share/wordlists/rockyou.txt id_rsa
 ```
 
-* Download / Install
+- <kbd>Download / Install</kbd>
+
 ```cmd
-root@kali:~# wget "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh" -O /opt/RSAcrack.sh
-root@kali:~# chmod +x /opt/RSAcrack.sh
+root@kali:~# wget -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh" -O /usr/bin/RSAcrack
+root@kali:~# chmod +x /usr/bin/RSAcrack
 ```
-
-* Add Alias
-  * Bash --------> `root@kali:~# echo "alias RSAcrack='/opt/RSAcrack.sh'" >> /root/.bashrc`
-  * Zsh ---------> `root@kali:~# echo "alias RSAcrack='/opt/RSAcrack.sh'" >> /root/.zshrc`
-  * Powerlevel --> `root@kali:~# echo "alias RSAcrack='/opt/RSAcrack.sh'" >> /root/.p10k.zsh`
-
-(Close terminal and reopen again)
 
 ---
