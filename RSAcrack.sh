@@ -76,7 +76,6 @@ function info(){
         sleep 1
 }
 
-
 while getopts ":k:w:" arg; do
     case $arg in
         k) key=$OPTARG;
