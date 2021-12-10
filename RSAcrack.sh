@@ -77,11 +77,12 @@ function info(){
 }
 
 
-while getopts ":k:w:h:" arg; do
+while getopts ":k:w:" arg; do
     case $arg in
-        k) key=$OPTARG; let parameter_counter+=1 ;;
-	w) wordlist=$OPTARG; let parameter_counter+=1 ;;
-	h) help;;
+        k) key=$OPTARG;
+	;;
+	w) wordlist=$OPTARG;
+	;;
     esac
 done
 
