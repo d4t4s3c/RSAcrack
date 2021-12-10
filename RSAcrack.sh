@@ -80,8 +80,8 @@ function info(){
 while getopts ":k:w:h:" arg; do
     case $arg in
         k) key=$OPTARG; let parameter_counter+=1 ;;
-		    w) wordlist=$OPTARG; let parameter_counter+=1 ;;
-		    h) help;;
+	w) wordlist=$OPTARG; let parameter_counter+=1 ;;
+	h) help;;
     esac
 done
 
