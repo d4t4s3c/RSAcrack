@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#colors
 declare -r White="\e[97m"
 declare -r Red="\e[31m"
 declare -r GreenLight="\e[92m"
@@ -8,7 +7,6 @@ declare -r YellowLight="\e[93m"
 declare -r CyanLight="\e[96m"
 declare -r End="\e[0m"
 
-#var
 declare -r var1='['
 declare -r var2=']'
 declare -r var3='i'
@@ -96,7 +94,6 @@ else
         exit 0
 fi
 
-#progress
 lines=$(/usr/bin/wc -l $wordlist)
 regex="([0-9]+).$wordlist"
 [[ $lines =~ $regex ]]
