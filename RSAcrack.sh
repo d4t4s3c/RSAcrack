@@ -28,8 +28,7 @@ declare -r var18='Fuck!'
 declare -r var19='it was not possible to crack his key'
 declare -r var20='SSH-Keygen not installed'
 declare -r var21='Status:'
-declare -r wordlist="$1"
-declare -r key="$2"
+declare -r var22='[========================================]'
 
 function check(){
                 which ssh-keygen > /dev/null 2>&1
@@ -44,24 +43,26 @@ function check(){
 }
 
 function banner(){
-        echo ""
-        echo -e "$GreenLight         ██████╗ ███████╗ █████╗$End";
-        echo -e "$GreenLight         ██╔══██╗██╔════╝██╔══██╗$End";
-        echo -e "$GreenLight         ██████╔╝███████╗███████║$End";
-        echo -e "$GreenLight         ██╔══██╗╚════██║██╔══██║$End";
-        echo -e "$GreenLight         ██║  ██║███████║██║  ██║$End";
-        echo -e "$GreenLight         ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝$End";
-        echo -e "$GreenLight  ██████╗██████╗  █████╗  ██████╗██╗  ██╗$End";
-        echo -e "$GreenLight ██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝$End";
-        echo -e "$GreenLight ██║     ██████╔╝███████║██║     █████╔╝ $End";
-        echo -e "$GreenLight ██║     ██╔══██╗██╔══██║██║     ██╔═██╗ $End";
-        echo -e "$GreenLight ╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗$End";
-        echo -e "$GreenLight  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End";
+        echo -e "$Green"
+        echo -e "         ██████╗ ███████╗ █████╗";
+        echo -e "         ██╔══██╗██╔════╝██╔══██╗";
+        echo -e "         ██████╔╝███████╗███████║";
+        echo -e "         ██╔══██╗╚════██║██╔══██║";
+        echo -e "         ██║  ██║███████║██║  ██║";
+        echo -e "         ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝";
+        echo -e "  ██████╗██████╗  █████╗  ██████╗██╗  ██╗";
+        echo -e " ██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝";
+        echo -e " ██║     ██████╔╝███████║██║     █████╔╝";
+        echo -e " ██║     ██╔══██╗██╔══██║██║     ██╔═██╗";
+        echo -e " ╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗";
+        echo -e "  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End";
+        echo -e "$Red     -----BEGIN RSA PRIVATE KEY-----$End"
+        echo -e "$White$var22$End"
 }
 
 function main(){
         echo ""
-        echo -e "$White$var1$YellowLight$var3$White$var2$Red $var12 $White$var9 $Red$var6$White$var10$Red$var5 $Red$var6$White$var11$Red$var5$End"
+        echo -e "$White$var1$YellowLight$var3$White$var2$Red $var12 $White$var9 -w $Red$var6$White$var10$Red$var5$White -k $Red$var6$White$var11$Red$var5$End"
         echo ""
 }
 
@@ -74,6 +75,15 @@ function info(){
         echo -e "$White$var1$YellowLight$var3$White$var2$Red$White $var21$End"
         sleep 1
 }
+
+
+while getopts ":k:w:h:" arg; do
+    case $arg in
+        k) key=$OPTARG; let parameter_counter+=1 ;;
+		    w) wordlist=$OPTARG; let parameter_counter+=1 ;;
+		    h) help;;
+    esac
+done
 
 if [ ! -z $wordlist ]; then
         check
@@ -102,7 +112,7 @@ siz="${BASH_REMATCH[1]}"
 while read password; do
                 line=$((line + 1))
                 progress=$((line * 100 / siz))
-                echo -ne "\r$YellowLight    $line/$siz ($progress%) ($password) $End"
+                echo -ne "\r$YellowLight    $line/$siz ($progress%) ($password)          $End"
                 /usr/bin/ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
                 f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d: -f1)
