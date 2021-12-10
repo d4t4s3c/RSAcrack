@@ -7,7 +7,7 @@
 - <kbd>Use</kbd>
 
 ```cmd
-root@kali:~# RSAcrack /usr/share/wordlists/rockyou.txt id_rsa
+root@kali:~# RSAcrack -w /usr/share/wordlists/rockyou.txt -k id_rsa
 ```
 
 - <kbd>Download / Install</kbd>
