@@ -43,7 +43,7 @@ function check(){
 }
 
 function banner(){
-        echo -e "$Green"
+        echo -e "$GreenLight"
         echo -e "         ██████╗ ███████╗ █████╗";
         echo -e "         ██╔══██╗██╔════╝██╔══██╗";
         echo -e "         ██████╔╝███████╗███████║";
