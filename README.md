@@ -7,7 +7,7 @@
 - <kbd>Use</kbd>
 
 ```bash
-RSAcrack -w /usr/share/wordlists/rockyou.txt -k id_rsa
+RSAcrack -w <WORDLIST> -k <KEY>
 ```
 
 - <kbd>Download / Install</kbd>
