@@ -16,8 +16,8 @@ declare -r var6='<'
 declare -r var7='-'
 declare -r var8='+'
 declare -r var9='RSAcrack'
-declare -r var10='wordlist'
-declare -r var11='id_rsa'
+declare -r var10='WORDLIST'
+declare -r var11='KEY'
 declare -r var12='Example:'
 declare -r var13='Cracking:'
 declare -r var14='Wordlist:'
@@ -28,7 +28,7 @@ declare -r var18='Fuck!'
 declare -r var19='it was not possible to crack his key'
 declare -r var20='SSH-Keygen not installed'
 declare -r var21='Status:'
-declare -r var22='[========================================]'
+declare -r var22='========================================'
 
 function check(){
                 which ssh-keygen > /dev/null 2>&1
@@ -56,8 +56,7 @@ function banner(){
         echo -e " ██║     ██╔══██╗██╔══██║██║     ██╔═██╗";
         echo -e " ╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗";
         echo -e "  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End";
-        echo -e "$Red     -----BEGIN RSA PRIVATE KEY-----$End"
-        echo -e "$White$var22$End"
+        echo -e "$Red$var1$White$var22$Red$var2$End"
 }
 
 function main(){
@@ -76,12 +75,11 @@ function info(){
         sleep 1
 }
 
-while getopts ":k:w:" arg; do
+while getopts ":k:w:h:" arg; do
     case $arg in
-        k) key=$OPTARG;
-	;;
-	w) wordlist=$OPTARG;
-	;;
+        k) key=$OPTARG; let parameter_counter+=1 ;;
+	w) wordlist=$OPTARG; let parameter_counter+=1 ;;
+	h) help;;
     esac
 done
 
