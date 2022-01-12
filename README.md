@@ -6,15 +6,15 @@
 
 - <kbd>Download / Install</kbd>
 
-```bash
-wget -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh" -O /usr/bin/RSAcrack
-chmod +x /usr/bin/RSAcrack
+```cmd
+root@kali:~# wget -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh" -O /usr/bin/RSAcrack
+root@kali:~# chmod +x /usr/bin/RSAcrack
 ```
 
 - <kbd>Use</kbd>
 
-```bash
-RSAcrack -w <WORDLIST> -k <KEY>
+```cmd
+root@kali:~# RSAcrack -w <WORDLIST> -k <KEY>
 ```
 
 ---
