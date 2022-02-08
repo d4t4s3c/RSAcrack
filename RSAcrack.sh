@@ -2,6 +2,7 @@
 
 declare -r White="\e[97m"
 declare -r Red="\e[31m"
+declare -r BlueLight="\e[94m"
 declare -r GreenLight="\e[92m"
 declare -r YellowLight="\e[93m"
 declare -r CyanLight="\e[96m"
@@ -20,7 +21,7 @@ declare -r var10='WORDLIST'
 declare -r var11='KEY'
 declare -r var12='Example:'
 declare -r var13='Cracking:'
-declare -r var14='Wordlist:'
+declare -r var14='WordList:'
 declare -r var15='Password:'
 declare -r var16='Line:'
 declare -r var17='Error!'
@@ -29,6 +30,10 @@ declare -r var19='it was not possible to crack his key'
 declare -r var20='SSH-Keygen not installed'
 declare -r var21='Status:'
 declare -r var22='========================================'
+declare -r var23='[+]'
+declare -r var24='[-]'
+declare -r var25='[!]'
+declare -r var26='[*]'
 
 function check(){
                 which ssh-keygen > /dev/null 2>&1
@@ -36,42 +41,43 @@ function check(){
                 :
         else
                 echo ""
-                echo -e "$White$var1$Red$var4$White$var2 $Red$var17 $White$var20$End"
+                echo -e "$Red$var24 $Red$var17 $White$var20$End"
                 sleep 2
                 exit 1
         fi
 }
 
 function banner(){
-        echo -e "$GreenLight"
-        echo -e "         ██████╗ ███████╗ █████╗";
-        echo -e "         ██╔══██╗██╔════╝██╔══██╗";
-        echo -e "         ██████╔╝███████╗███████║";
-        echo -e "         ██╔══██╗╚════██║██╔══██║";
-        echo -e "         ██║  ██║███████║██║  ██║";
-        echo -e "         ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝";
-        echo -e "  ██████╗██████╗  █████╗  ██████╗██╗  ██╗";
-        echo -e " ██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝";
-        echo -e " ██║     ██████╔╝███████║██║     █████╔╝";
-        echo -e " ██║     ██╔══██╗██╔══██║██║     ██╔═██╗";
-        echo -e " ╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗";
-        echo -e "  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End";
+        echo ""
+        echo -e "$Red$var1$White$var22$Red$var2$End"
+        echo -e "$GreenLight         ██████╗ ███████╗ █████╗$End"
+        echo -e "$GreenLight         ██╔══██╗██╔════╝██╔══██╗$End"
+        echo -e "$GreenLight         ██████╔╝███████╗███████║$End"
+        echo -e "$GreenLight         ██╔══██╗╚════██║██╔══██║$End"
+        echo -e "$GreenLight         ██║  ██║███████║██║  ██║$End"
+        echo -e "$GreenLight         ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝$End"
+        echo -e "$GreenLight  ██████╗██████╗  █████╗  ██████╗██╗  ██╗$End"
+        echo -e "$GreenLight ██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝$End"
+        echo -e "$GreenLight ██║     ██████╔╝███████║██║     █████╔╝$End"
+        echo -e "$GreenLight ██║     ██╔══██╗██╔══██║██║     ██╔═██╗$End"
+        echo -e "$GreenLight ╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗$End"
+        echo -e "$GreenLight  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End"
         echo -e "$Red$var1$White$var22$Red$var2$End"
 }
 
 function main(){
         echo ""
-        echo -e "$White$var1$YellowLight$var3$White$var2$Red $var12 $White$var9 -w $Red$var6$White$var10$Red$var5$White -k $Red$var6$White$var11$Red$var5$End"
+        echo -e "$YellowLight$var25 $Red$var12 $White$var9 -w $Red$var6$White$var10$Red$var5$White -k $Red$var6$White$var11$Red$var5$End"
         echo ""
 }
 
 function info(){
         echo ""
-        echo -e "$White$var1$Red$var7$White$var2 $White$var13 $CyanLight$key$End"
+        echo -e "$BlueLight$var26 $White$var13 $CyanLight$key$End"
         sleep 1
-        echo -e "$White$var1$Red$var7$White$var2 $White$var14 $CyanLight$wordlist$End"
+        echo -e "$BlueLight$var26 $White$var14 $CyanLight$wordlist$End"
         sleep 1
-        echo -e "$White$var1$YellowLight$var3$White$var2$Red$White $var21$End"
+        echo -e "$YellowLight$var25 $White$var21$End"
         sleep 1
 }
 
@@ -114,13 +120,13 @@ while read password; do
                 /usr/bin/ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
                 f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d: -f1)
-                echo -e "\n$White$var1$GreenLight$var8$White$var2 $Red$var15 $GreenLight$password$Red $var16 $GreenLight$f1"
+                echo -e "\n$GreenLight$var23 $Red$var15 $GreenLight$password$Red $var16 $GreenLight$f1"
                 echo ""
                 sleep 2
                 exit 0
         fi
 done < $wordlist
-echo -e "\r$White$var1$Red$var4$White$var2 $Red$var18 $White$var19$End"
+echo -e "\r$Red$var24 $Red$var18 $White$var19$End"
 echo ""
 sleep 2
 exit 0
