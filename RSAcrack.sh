@@ -119,7 +119,7 @@ while read password; do
                 echo -ne "\r$YellowLight    $line/$siz ($progress%) ($password)          $End"
                 /usr/bin/ssh-keygen -y -f $key -P $password &>/dev/null
         if [ $? -eq 0 ]; then
-                f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d: -f1)
+                f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d ":" -f 1)
                 echo -e "\n$GreenLight$var23 $Red$var15 $GreenLight$password$Red $var16 $GreenLight$f1"
                 echo ""
                 sleep 2
