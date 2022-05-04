@@ -94,7 +94,7 @@ else
 fi
 
 if [ ! -z $KEY ]; then
-        /usr/bin/chmod 600 $key &>/dev/null
+        /usr/bin/chmod 600 $KEY &>/dev/null
         info
 else
         main
