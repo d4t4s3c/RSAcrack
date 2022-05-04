@@ -1,39 +1,40 @@
 #!/bin/bash
 
-declare -r White="\e[97m"
-declare -r Red="\e[31m"
-declare -r BlueLight="\e[94m"
-declare -r GreenLight="\e[92m"
-declare -r YellowLight="\e[93m"
-declare -r CyanLight="\e[96m"
-declare -r End="\e[0m"
+declare -r WHITE="\e[97m"
+declare -r RED="\e[31m"
+declare -r BLUE="\e[94m"
+declare -r GREEN="\e[92m"
+declare -r YELLOW="\e[93m"
+declare -r CYAN="\e[96m"
+declare -r END="\e[0m"
 
-declare -r var1='['
-declare -r var2=']'
-declare -r var3='i'
-declare -r var4='x'
-declare -r var5='>'
-declare -r var6='<'
-declare -r var7='-'
-declare -r var8='+'
-declare -r var9='RSAcrack'
-declare -r var10='WORDLIST'
-declare -r var11='KEY'
-declare -r var12='Example:'
-declare -r var13='Cracking:'
-declare -r var14='WordList:'
-declare -r var15='Password:'
-declare -r var16='Line:'
-declare -r var17='Error!'
-declare -r var18='Fuck!'
-declare -r var19='it was not possible to crack his key'
-declare -r var20='SSH-Keygen not installed'
-declare -r var21='Status:'
-declare -r var22='========================================'
-declare -r var23='[+]'
-declare -r var24='[-]'
-declare -r var25='[!]'
-declare -r var26='[*]'
+declare -r VAR1='['
+declare -r VAR2=']'
+declare -r VAR3='i'
+declare -r VAR4='*'
+declare -r VAR5='>'
+declare -r VAR6='<'
+declare -r VAR7='-'
+declare -r VAR8='+'
+declare -r VAR9='RSAcrack'
+declare -r VAR10='WORDLIST'
+declare -r VAR11='KEY'
+declare -r VAR12='Use:'
+declare -r VAR13='Cracking:'
+declare -r VAR14='Wordlist:'
+declare -r VAR15='Password:'
+declare -r VAR16='Line:'
+declare -r VAR17='Error!'
+declare -r VAR18='Fuck!'
+declare -r VAR19='it was not possible to crack his key.'
+declare -r VAR20='ssh-keygen not installed.'
+declare -r VAR21='Status:'
+declare -r VAR22='-=========================-'
+
+declare -r BOX1="$WHITE$VAR1$GREEN$VAR8$WHITE$VAR2$END"
+declare -r BOX2="$WHITE$VAR1$RED$VAR7$WHITE$VAR2$END"
+declare -r BOX3="$WHITE$VAR1$YELLOW$VAR3$WHITE$VAR2$END"
+declare -r BOX4="$WHITE$VAR1$BLUE$VAR4$WHITE$VAR2$END"
 
 function check(){
                 which ssh-keygen > /dev/null 2>&1
@@ -41,55 +42,48 @@ function check(){
                 :
         else
                 echo ""
-                echo -e "$Red$var24 $Red$var17 $White$var20$End"
+                echo -e "$BOX2 $RED$VAR17 $WHITE$VAR20$END"
+                echo ""
                 sleep 2
                 exit 1
         fi
 }
 
 function banner(){
-        echo ""
-        echo -e "$Red$var1$White$var22$Red$var2$End"
-        echo -e "$GreenLight         ██████╗ ███████╗ █████╗$End"
-        echo -e "$GreenLight         ██╔══██╗██╔════╝██╔══██╗$End"
-        echo -e "$GreenLight         ██████╔╝███████╗███████║$End"
-        echo -e "$GreenLight         ██╔══██╗╚════██║██╔══██║$End"
-        echo -e "$GreenLight         ██║  ██║███████║██║  ██║$End"
-        echo -e "$GreenLight         ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝$End"
-        echo -e "$GreenLight  ██████╗██████╗  █████╗  ██████╗██╗  ██╗$End"
-        echo -e "$GreenLight ██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝$End"
-        echo -e "$GreenLight ██║     ██████╔╝███████║██║     █████╔╝$End"
-        echo -e "$GreenLight ██║     ██╔══██╗██╔══██║██║     ██╔═██╗$End"
-        echo -e "$GreenLight ╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗$End"
-        echo -e "$GreenLight  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝$End"
-        echo -e "$Red$var1$White$var22$Red$var2$End"
+        echo -e "$GREEN"
+        echo -e "╭━━━┳━━━┳━━━╮          ╭╮"
+        echo -e "┃╭━╮┃╭━╮┃╭━╮┃          ┃┃"
+        echo -e "┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮"
+        echo -e "┃╭╮╭┻━━╮┃╰━╯┃╭━┫╭┫╭╮┃╭━┫╰╯╯"
+        echo -e "┃┃┃╰┫╰━╯┃╭━╮┃╰━┫┃┃╭╮┃╰━┫╭╮╮"
+        echo -e "╰╯╰━┻━━━┻╯ ╰┻━━┻╯╰╯╰┻━━┻╯╰╯$END"
+        echo -e "$WHITE$VAR22$END"
 }
 
 function main(){
         echo ""
-        echo -e "$YellowLight$var25 $Red$var12 $White$var9 -w $Red$var6$White$var10$Red$var5$White -k $Red$var6$White$var11$Red$var5$End"
+        echo -e "$BOX3 $RED$VAR12 $WHITE$VAR9 -w $RED$VAR6$WHITE$VAR10$RED$VAR5$WHITE -k $RED$VAR6$WHITE$VAR11$RED$VAR5$END"
         echo ""
 }
 
 function info(){
-        echo ""
-        echo -e "$BlueLight$var26 $White$var13 $CyanLight$key$End"
+        echo -e "$BOX4 $WHITE$VAR13 $BLUE$KEY$END"
         sleep 1
-        echo -e "$BlueLight$var26 $White$var14 $CyanLight$wordlist$End"
+        echo -e "$BOX4 $WHITE$VAR14 $BLUE$WORDLIST$END"
         sleep 1
-        echo -e "$YellowLight$var25 $White$var21$End"
+        echo -e "$BOX3 $WHITE$VAR21$END"
         sleep 1
 }
 
 while getopts ":k:w:h:" arg; do
-    case $arg in
-        k) key=$OPTARG; let parameter_counter+=1 ;;
-	w) wordlist=$OPTARG; let parameter_counter+=1 ;;
-	h) help;;
-    esac
+        case $arg in
+                k) KEY=$OPTARG; let parameter_counter+=1 ;;
+                w) WORDLIST=$OPTARG; let parameter_counter+=1 ;;
+                h) help;;
+        esac
 done
 
-if [ ! -z $wordlist ]; then
+if [ ! -z $WORDLIST ]; then
         check
         banner
         sleep 0.5
@@ -100,7 +94,7 @@ else
         exit 0
 fi
 
-if [ ! -z $key ]; then
+if [ ! -z $KEY ]; then
         /usr/bin/chmod 600 $key &>/dev/null
         info
 else
@@ -108,25 +102,25 @@ else
         exit 0
 fi
 
-lines=$(/usr/bin/wc -l $wordlist)
-regex="([0-9]+).$wordlist"
+lines=$(/usr/bin/wc -l $WORDLIST)
+regex="([0-9]+).$WORDLIST"
 [[ $lines =~ $regex ]]
 siz="${BASH_REMATCH[1]}"
 
-while read password; do
+while read PASSWORD; do
                 line=$((line + 1))
                 progress=$((line * 100 / siz))
-                echo -ne "\r$YellowLight    $line/$siz ($progress%) ($password)          $End"
-                /usr/bin/ssh-keygen -y -f $key -P $password &>/dev/null
+                echo -ne "\r$YELLOW    $line/$siz   ($progress%)   ($PASSWORD)          $END"
+                /usr/bin/ssh-keygen -y -f $KEY -P $PASSWORD &>/dev/null
         if [ $? -eq 0 ]; then
-                f1=$(/usr/bin/cat $wordlist | /usr/bin/grep "^$password$" -n | /usr/bin/cut -d ":" -f 1)
-                echo -e "\n$GreenLight$var23 $Red$var15 $GreenLight$password$Red $var16 $GreenLight$f1"
+                F1=$(/usr/bin/cat $WORDLIST | /usr/bin/grep "^$PASSWORD$" -n | /usr/bin/cut -d ":" -f 1)
+                echo -e "\n$BOX1 $RED$VAR15 $GREEN$PASSWORD$RED $VAR16 $GREEN$F1$END"
                 echo ""
                 sleep 2
                 exit 0
         fi
-done < $wordlist
-echo -e "\r$Red$var24 $Red$var18 $White$var19$End"
+done < $WORDLIST
+echo -e "\r$BOX2 $RED$VAR18 $WHITE$VAR19$END"
 echo ""
 sleep 2
 exit 0
