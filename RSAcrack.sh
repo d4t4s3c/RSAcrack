@@ -1,10 +1,10 @@
 #!/bin/bash
 
-declare -r WHITE="\e[97m"
-declare -r RED="\e[31m"
-declare -r BLUE="\e[94m"
+declare -r RED="\e[91m"
 declare -r GREEN="\e[92m"
 declare -r YELLOW="\e[93m"
+declare -r BLUE="\e[94m"
+declare -r WHITE="\e[97m"
 declare -r END="\e[0m"
 
 declare -r VAR1='['
