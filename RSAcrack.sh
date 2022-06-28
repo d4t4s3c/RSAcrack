@@ -35,6 +35,8 @@ declare -r BOX2="$WHITE$VAR1$RED$VAR7$WHITE$VAR2$END"
 declare -r BOX3="$WHITE$VAR1$YELLOW$VAR3$WHITE$VAR2$END"
 declare -r BOX4="$WHITE$VAR1$BLUE$VAR4$WHITE$VAR2$END"
 
+trap ctrl_c INT
+
 function check(){
                 which ssh-keygen > /dev/null 2>&1
         if [ "$(echo $?)" == "0" ]; then
@@ -72,6 +74,11 @@ function info(){
         sleep 1
         echo -e "$BOX3 $WHITE$VAR21$END"
         sleep 1
+}
+
+function ctrl_c(){
+        echo ""
+        exit 1
 }
 
 while getopts ":k:w:h:" arg; do
