@@ -46,7 +46,7 @@ function check(){
                 echo -e "$BOX2 $RED$VAR17 $WHITE$VAR20$END"
                 echo ""
                 sleep 2
-                exit 1
+                return
         fi
 }
 
@@ -116,7 +116,7 @@ siz="${BASH_REMATCH[1]}"
 while read PASSWORD; do
                 line=$((line + 1))
                 progress=$((line * 100 / siz))
-                echo -ne "\r$YELLOW    $line/$siz   ($progress%)   ($PASSWORD)          $END"
+                echo -ne "\r$YELLOW    $line/$siz/$progress%/$PASSWORD                              $END"
                 /usr/bin/ssh-keygen -y -f $KEY -P $PASSWORD &>/dev/null
         if [ $? -eq 0 ]; then
                 F1=$(/usr/bin/cat $WORDLIST | /usr/bin/grep "^$PASSWORD$" -n | /usr/bin/cut -d ":" -f 1)
