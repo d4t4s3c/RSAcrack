@@ -51,6 +51,7 @@ function dependencies(){
 }
 
 function banner(){
+  echo ""
   echo -e "$GREEN╭━━━┳━━━┳━━━╮          ╭╮  $END"
   echo -e "$GREEN┃╭━╮┃╭━╮┃╭━╮┃          ┃┃  $END"
   echo -e "$GREEN┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮$END"
