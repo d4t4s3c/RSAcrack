@@ -2,7 +2,7 @@
 
 **Brute Force Password (Passphrase) Private Key (id_rsa)**
 
-![](/1.png)
+![](/screenshot.png)
 
 - <kbd>Download / Install</kbd>
 
