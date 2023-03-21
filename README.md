@@ -2,7 +2,7 @@
 
 **Brute Force Password (Passphrase) Private Key (id_rsa)**
 
-![](/screenshot.png)
+![](/1.png)
 
 - <kbd>Download / Install</kbd>
 
@@ -14,7 +14,7 @@ root@kali:~# chmod +x /usr/bin/RSAcrack
 - <kbd>Use</kbd>
 
 ```cmd
-root@kali:~# RSAcrack -w <WORDLIST> -k <KEY>
+root@kali:~# RSAcrack -k <KEY> -w <WORDLIST>
 ```
 
 **NOTE:** The cracking speed can vary depending on which tool the key is generated with.
