@@ -7,7 +7,7 @@
 - <kbd>Download / Install</kbd>
 
 ```cmd
-root@kali:~# wget -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack.sh" -O /usr/bin/RSAcrack
+root@kali:~# wget -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack
 root@kali:~# chmod +x /usr/bin/RSAcrack
 ```
 
