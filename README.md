@@ -17,7 +17,8 @@ chmod +x /usr/bin/RSAcrack
 RSAcrack -k <KEY> -w <WORDLIST>
 ```
 
-**WARNING:** The cracking speed can vary depending on which tool the key is generated with.
+> [!WARNING]
+> The cracking speed can vary depending on which tool the key is generated with.
 
 | Key Generated | Cracking Speed     |
 |---------------|--------------------|
