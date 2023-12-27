@@ -7,14 +7,14 @@
 - <kbd>Download / Install</kbd>
 
 ```cmd
-root@kali:~# wget -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack
-root@kali:~# chmod +x /usr/bin/RSAcrack
+wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack
+chmod +x /usr/bin/RSAcrack
 ```
 
 - <kbd>Use</kbd>
 
 ```cmd
-root@kali:~# RSAcrack -k <KEY> -w <WORDLIST>
+RSAcrack -k <KEY> -w <WORDLIST>
 ```
 
 **WARNING:** The cracking speed can vary depending on which tool the key is generated with.
