@@ -4,11 +4,16 @@
 
 ![](/1.png)
 
-- <kbd>Download / Install</kbd>
+- <kbd>Download Only</kbd>
+
+```sh
+wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" && chmod +x /usr/bin/RSAcrack
+```
+
+- <kbd>Download & Install (PATH)</kbd>
 
 ```cmd
-wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack
-chmod +x /usr/bin/RSAcrack
+wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack && chmod +x /usr/bin/RSAcrack
 ```
 
 - <kbd>Use</kbd>
