@@ -4,6 +4,8 @@
 
 ![](/1.png)
 
+---
+
 - <kbd>Download Only</kbd>
 
 ```sh
