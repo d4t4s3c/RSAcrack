@@ -18,7 +18,7 @@ wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcra
 wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack && chmod +x /usr/bin/RSAcrack
 ```
 
-- <kbd>Use</kbd>
+- <kbd>Usage</kbd>
 
 ```cmd
 RSAcrack -k <KEY> -w <WORDLIST>
