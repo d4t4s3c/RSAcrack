@@ -111,6 +111,7 @@ LINES=$(wc -l $WORDLIST)
 REGEX="([0-9]+).$WORDLIST"
 [[ $LINES =~ $REGEX ]]
 SIZ="${BASH_REMATCH[1]}"
+
 IFS=$'\n' read -d '' -r -a ARRAY < $WORDLIST
 for PASSWORD in "${ARRAY[@]}"; do
     LINE=$((LINE + 1))
