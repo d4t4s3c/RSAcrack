@@ -35,4 +35,8 @@ RSAcrack -k <KEY> -w <WORDLIST>
 | ssh-keygen    | :x:                |
 | 8gwifi        | :heavy_check_mark: |
 
+> [!CAUTION]
+> Do not load large dictionaries with many lines.
+
 ---
+
