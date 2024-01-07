@@ -6,16 +6,22 @@
 
 ---
 
-- <kbd>Download Only</kbd>
+- <kbd>Download RSAcrack</kbd>
 
 ```sh
 wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" && chmod +x RSAcrack
 ```
 
-- <kbd>Download & Install (PATH)</kbd>
+- <kbd>Download RSAcrack & Install (PATH)</kbd>
 
 ```cmd
 wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack && chmod +x /usr/bin/RSAcrack
+```
+
+- <kbd>Download Wordlist (Optional Recommended)</kbd>
+
+```cmd
+wget --no-check-certificate -q ""
 ```
 
 - <kbd>Usage</kbd>
