@@ -21,7 +21,7 @@ wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcra
 - <kbd>Download Wordlist (Optional Recommended)</kbd>
 
 ```cmd
-wget --no-check-certificate -q ""
+wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/techyou.txt"
 ```
 
 - <kbd>Usage</kbd>
