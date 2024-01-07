@@ -6,7 +6,7 @@
 
 ---
 
-- <kbd>Download `RSAcrack`</kbd>
+- <kbd>Download **RSAcrack**</kbd>
 
 ```sh
 wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" && chmod +x RSAcrack
