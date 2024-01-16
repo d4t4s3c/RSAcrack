@@ -18,7 +18,7 @@ readonly VAR8='+'
 readonly VAR9='RSAcrack'
 readonly VAR10='WORDLIST'
 readonly VAR11='KEY'
-readonly VAR12='Use:'
+readonly VAR12='Usage:'
 readonly VAR13='Cracking:'
 readonly VAR14='Wordlist:'
 readonly VAR15='Password:'
@@ -38,20 +38,20 @@ readonly BOX4="$WHITE$VAR1$BLUE$VAR4$WHITE$VAR2$END"
 trap ctrl_c INT
 
 function dependencies(){
-    which ssh-keygen > /dev/null 2>&1
+  which ssh-keygen > /dev/null 2>&1
   if [ "$(echo $?)" == "0" ]; then
     :
   else
-    echo ""
+    echo
     echo -e "$BOX2 $RED$VAR17 $WHITE$VAR20$END"
-    echo ""
+    echo
     sleep 2
     exit 1
   fi
 }
 
 function banner(){
-  echo ""
+  echo
   echo -e "$GREEN╭━━━┳━━━┳━━━╮          ╭╮  $END"
   echo -e "$GREEN┃╭━╮┃╭━╮┃╭━╮┃          ┃┃  $END"
   echo -e "$GREEN┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮$END"
@@ -62,9 +62,9 @@ function banner(){
 }
 
 function help(){
-  echo ""
+  echo
   echo -e "$BOX3 $RED$VAR12 $WHITE$VAR9 -w $RED$VAR6$WHITE$VAR10$RED$VAR5$WHITE -k $RED$VAR6$WHITE$VAR11$RED$VAR5$END"
-  echo ""
+  echo
 }
 
 function info(){
@@ -77,7 +77,7 @@ function info(){
 }
 
 function ctrl_c(){
-  echo ""
+  echo
   exit 1
 }
 
@@ -112,21 +112,22 @@ REGEX="([0-9]+).$WORDLIST"
 [[ $LINES =~ $REGEX ]]
 SIZ="${BASH_REMATCH[1]}"
 
-IFS=$'\n' read -d '' -r -a ARRAY < $WORDLIST
-for PASSWORD in "${ARRAY[@]}"; do
-    LINE=$((LINE + 1))
-    PROGRESS=$((LINE * 100 / SIZ))
-    echo -ne "\r\033[K$YELLOW    $LINE/$SIZ/$PROGRESS%/$PASSWORD$END"
-    ssh-keygen -y -f $KEY -P $PASSWORD &>/dev/null
+while IFS= read -r PASSWORD; do
+  LINE=$((LINE + 1))
+  PROGRESS=$((LINE * 100 / SIZ))
+  echo -ne "\e[?25l\r\033[K$YELLOW    $LINE/$SIZ/$PROGRESS%/$PASSWORD$END"
+  ssh-keygen -y -f $KEY -P $PASSWORD &>/dev/null
   if [ $? -eq 0 ]; then
-    GETLINE=$(/usr/bin/cat $WORDLIST | grep "^$PASSWORD$" -n | cut -d ":" -f 1)
+    GETLINE=$(grep -n "^$PASSWORD$" $WORDLIST | cut -d ":" -f 1)
     echo -e "\n$BOX1 $RED$VAR15 $GREEN$PASSWORD$RED $VAR16 $GREEN$GETLINE$END"
-    echo ""
+    echo
     sleep 2
+    tput cnorm
     exit 0
   fi
-done
+done < $WORDLIST
 echo -e "$BOX2 $RED$VAR18 $WHITE$VAR19$END"
-echo ""
+echo
 sleep 2
+tput cnorm
 exit 0
