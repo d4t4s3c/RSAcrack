@@ -1,6 +1,6 @@
 # RSAcrack
 
-**Brute Force Password (Passphrase) Private Key (id_rsa)**
+**Perform brute force password attacks on id_rsa**
 
 ![](/1.png)
 
