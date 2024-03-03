@@ -1,6 +1,6 @@
 # RSAcrack
 
-**RSAcrack allows you to crack the private key password using brute force.**
+**RSAcrack allows you to crack the private key (id_rsa) password using brute force.**
 
 ![](/1.png)
 
