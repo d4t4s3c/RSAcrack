@@ -33,6 +33,7 @@ RSAcrack -k <KEY> -w <WORDLIST>
 |---------------|--------------------|
 | OpenSSL       | :heavy_check_mark: |
 | ssh-keygen    | :x:                |
+| PuTTYgen      | :heavy_check_mark: |
 | 8gwifi        | :heavy_check_mark: |
 
 ---
