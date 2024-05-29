@@ -78,6 +78,7 @@ function info(){
 
 function ctrl_c(){
   echo
+  tput cnorm
   exit 1
 }
 
