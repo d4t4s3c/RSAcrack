@@ -89,21 +89,14 @@ while getopts ":k:w:" arg; do
   esac
 done
 
-if [ ! -z $WORDLIST ]; then
+if [[ -n "$KEY" && -n "$WORDLIST" ]]; then
   dependencies
+  chmod 600 $KEY &>/dev/null
   banner
+  info
   sleep 1
 else
-  dependencies
   banner
-  help
-  exit 0
-fi
-
-if [ ! -z $KEY ]; then
-  chmod 600 $KEY &>/dev/null
-  info
-else
   help
   exit 0
 fi
@@ -112,7 +105,6 @@ LINES=$(wc -l $WORDLIST)
 REGEX="([0-9]+).$WORDLIST"
 [[ $LINES =~ $REGEX ]]
 SIZ="${BASH_REMATCH[1]}"
-
 while IFS= read -r PASSWORD; do
   LINE=$((LINE + 1))
   PROGRESS=$((LINE * 100 / SIZ))
