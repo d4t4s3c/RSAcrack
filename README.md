@@ -1,6 +1,6 @@
 # RSAcrack
 
-**Get the private key (id_rsa) passphrase.**
+**Get private key passphrase (id_rsa).**
 
 ![](/1.png)
 
