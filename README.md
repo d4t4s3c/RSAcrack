@@ -6,19 +6,19 @@
 
 ---
 
-- <kbd>Download **RSAcrack**</kbd>
+# Download
 
 ```sh
 wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" && chmod +x RSAcrack
 ```
 
-- <kbd>Download **RSAcrack** & Add **RSAcrack** to PATH</kbd>
+# Download & Install (PATH)
 
 ```cmd
 wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack && chmod +x /usr/bin/RSAcrack
 ```
 
-- <kbd>Usage</kbd>
+# Usage
 
 ```cmd
 RSAcrack -k <KEY> -w <WORDLIST>
