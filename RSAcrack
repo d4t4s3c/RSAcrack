@@ -25,6 +25,7 @@ function banner(){
   echo -e "${GREEN} ┃╭╮╭┻━━╮┃╰━╯┃╭━┫╭┫╭╮┃╭━┫╰╯╯${END}"
   echo -e "${GREEN} ┃┃┃╰┫╰━╯┃╭━╮┃╰━┫┃┃╭╮┃╰━┫╭╮╮${END}"
   echo -e "${GREEN} ╰╯╰━┻━━━┻╯ ╰┻━━┻╯╰╯╰┻━━┻╯╰╯${END}"
+  echo -e "${SEPARATOR}"
   echo -e " code: ${YELLOW}d4t4s3c${END}   ver: ${YELLOW}v1.0.0${END}"
   echo -e "${SEPARATOR}"
 }
