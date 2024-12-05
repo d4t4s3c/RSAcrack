@@ -6,74 +6,45 @@ readonly YELLOW="\e[93m"
 readonly BLUE="\e[94m"
 readonly WHITE="\e[97m"
 readonly END="\e[0m"
-
-readonly VAR1='['
-readonly VAR2=']'
-readonly VAR3='i'
-readonly VAR4='*'
-readonly VAR5='>'
-readonly VAR6='<'
-readonly VAR7='-'
-readonly VAR8='+'
-readonly VAR9='RSAcrack'
-readonly VAR10='WORDLIST'
-readonly VAR11='KEY'
-readonly VAR12='Usage:'
-readonly VAR13='Cracking:'
-readonly VAR14='Wordlist:'
-readonly VAR15='Password:'
-readonly VAR16='Line:'
-readonly VAR17='Error!'
-readonly VAR18='Fuck!'
-readonly VAR19='it was not possible to crack his key.'
-readonly VAR20='ssh-keygen not installed.'
-readonly VAR21='Status:'
-readonly VAR22='-=========================-'
-
-readonly BOX1="$WHITE$VAR1$GREEN$VAR8$WHITE$VAR2$END"
-readonly BOX2="$WHITE$VAR1$RED$VAR7$WHITE$VAR2$END"
-readonly BOX3="$WHITE$VAR1$YELLOW$VAR3$WHITE$VAR2$END"
-readonly BOX4="$WHITE$VAR1$BLUE$VAR4$WHITE$VAR2$END"
+readonly SEPARATOR="─────────────────────────────"
 
 trap ctrl_c INT
 
 function dependencies(){
-  which ssh-keygen > /dev/null 2>&1
-  if [ "$(echo $?)" == "0" ]; then
-    :
-  else
-    echo
-    echo -e "$BOX2 $RED$VAR17 $WHITE$VAR20$END"
-    echo
-    sleep 2
-    exit 1
+  which ssh-keygen &>/dev/null
+  if [ "$(echo $?)" != "0" ]; then
+    apt install -y openssh-client &>/dev/null
   fi
 }
 
 function banner(){
   echo
-  echo -e "$GREEN╭━━━┳━━━┳━━━╮          ╭╮  $END"
-  echo -e "$GREEN┃╭━╮┃╭━╮┃╭━╮┃          ┃┃  $END"
-  echo -e "$GREEN┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮$END"
-  echo -e "$GREEN┃╭╮╭┻━━╮┃╰━╯┃╭━┫╭┫╭╮┃╭━┫╰╯╯$END"
-  echo -e "$GREEN┃┃┃╰┫╰━╯┃╭━╮┃╰━┫┃┃╭╮┃╰━┫╭╮╮$END"
-  echo -e "$GREEN╰╯╰━┻━━━┻╯ ╰┻━━┻╯╰╯╰┻━━┻╯╰╯$END"
-  echo -e "$WHITE$VAR22$END"
+  echo -e "${GREEN} ╭━━━┳━━━┳━━━╮          ╭╮  ${END}"
+  echo -e "${GREEN} ┃╭━╮┃╭━╮┃╭━╮┃          ┃┃  ${END}"
+  echo -e "${GREEN} ┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮${END}"
+  echo -e "${GREEN} ┃╭╮╭┻━━╮┃╰━╯┃╭━┫╭┫╭╮┃╭━┫╰╯╯${END}"
+  echo -e "${GREEN} ┃┃┃╰┫╰━╯┃╭━╮┃╰━┫┃┃╭╮┃╰━┫╭╮╮${END}"
+  echo -e "${GREEN} ╰╯╰━┻━━━┻╯ ╰┻━━┻╯╰╯╰┻━━┻╯╰╯${END}"
+  echo -e " code: ${YELLOW}d4t4s3c${END}   ver: ${YELLOW}v1.0.0${END}"
+  echo -e "${SEPARATOR}"
 }
 
 function help(){
-  echo
-  echo -e "$BOX3 $RED$VAR12 $WHITE$VAR9 -w $RED$VAR6$WHITE$VAR10$RED$VAR5$WHITE -k $RED$VAR6$WHITE$VAR11$RED$VAR5$END"
-  echo
+  echo -e "\n ❓  Usage: RSAcrack [OPTIONS]\n"
+  echo -e " 🌐  Get the passphrase of a private key (id_rsa).\n"
+  echo -e " 📋  Options:"
+  echo -e "       -k <KEY>       Specify the path where the id_rsa key is located."
+  echo -e "       -w <WORDLIST>  Specify the path where the wordlist is located."
+  echo -e "       -h             Display this help message and exit.\n"
+  echo -e " 💡  Examples:"
+  echo -e "       RSAcrack -k id_rsa -w rockyou.txt"
+  echo -e "       RSAcrack -h \n"
+  echo -e "${SEPARATOR}\n"
 }
 
 function info(){
-  echo -e "$BOX4 $WHITE$VAR13 $BLUE$KEY$END"
-  sleep 1
-  echo -e "$BOX4 $WHITE$VAR14 $BLUE$WORDLIST$END"
-  sleep 1
-  echo -e "$BOX3 $WHITE$VAR21$END"
-  sleep 1
+  echo -e "🎯 Cracking | ${BLUE}${KEY}${END}"
+  echo -e "📖 Wordlist | ${BLUE}${WORDLIST}${END}"
 }
 
 function ctrl_c(){
@@ -82,45 +53,43 @@ function ctrl_c(){
   exit 1
 }
 
-while getopts ":k:w:" arg; do
-  case $arg in
+while getopts ":k:w:" ARG; do
+  case ${ARG} in
     k) KEY=$OPTARG; let parameter_counter+=1 ;;
     w) WORDLIST=$OPTARG; let parameter_counter+=1 ;;
   esac
 done
 
-if [[ -n "$KEY" && -n "$WORDLIST" ]]; then
+if [[ -n "${KEY}" && -n "${WORDLIST}" ]]; then
   dependencies
-  chmod 600 $KEY &>/dev/null
+  chmod 600 ${KEY} &>/dev/null
   banner
   info
-  sleep 1
 else
   banner
   help
   exit 0
 fi
 
-LINES=$(wc -l $WORDLIST)
-REGEX="([0-9]+).$WORDLIST"
-[[ $LINES =~ $REGEX ]]
+LINES=$(wc -l ${WORDLIST})
+REGEX="([0-9]+).${WORDLIST}"
+[[ ${LINES} =~ ${REGEX} ]]
 SIZ="${BASH_REMATCH[1]}"
 while IFS= read -r PASSWORD; do
   LINE=$((LINE + 1))
   PROGRESS=$((LINE * 100 / SIZ))
-  echo -ne "\e[?25l\r\033[K$YELLOW    $LINE/$SIZ/$PROGRESS%/$PASSWORD$END"
-  ssh-keygen -y -f $KEY -P $PASSWORD &>/dev/null
+  echo -ne "\e[?25l\r\033[K🔎 Status   | ${YELLOW}${LINE}/${SIZ}/${PROGRESS}%/${PASSWORD}${END}"
+  ssh-keygen -y -f ${KEY} -P ${PASSWORD} &>/dev/null
   if [ $? -eq 0 ]; then
-    GETLINE=$(grep -n "^$PASSWORD$" $WORDLIST | cut -d ":" -f 1)
-    echo -e "\n$BOX1 $RED$VAR15 $GREEN$PASSWORD$RED $VAR16 $GREEN$GETLINE$END"
-    echo
+    echo -e "\n💥 Password | $GREEN$PASSWORD$RED$END"
+    echo -e "${SEPARATOR}\n"
     sleep 2
     tput cnorm
     exit 0
   fi
-done < $WORDLIST
-echo -e "$BOX2 $RED$VAR18 $WHITE$VAR19$END"
-echo
+done < ${WORDLIST}
+echo -e "\n❗ Fuck!    | ${RED}Password not found${END}"
+echo -e "${SEPARATOR}\n"
 sleep 2
 tput cnorm
 exit 0
