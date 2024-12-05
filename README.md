@@ -9,13 +9,13 @@
 ## Download
 
 ```sh
-wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" && chmod +x RSAcrack
+wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/refs/heads/main/RSAcrack" && chmod +x RSAcrack
 ```
 
 ## Download & Install (PATH)
 
 ```cmd
-wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/main/RSAcrack" -O /usr/bin/RSAcrack && chmod +x /usr/bin/RSAcrack
+wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcrack/refs/heads/main/RSAcrack" -O /usr/bin/RSAcrack && chmod +x /usr/bin/RSAcrack
 ```
 
 ## Usage
