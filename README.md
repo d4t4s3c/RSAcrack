@@ -2,7 +2,7 @@
 
 **Get private key passphrase (id_rsa).**
 
-![](/1.png)
+![](/img/screenshot.png)
 
 ---
 
