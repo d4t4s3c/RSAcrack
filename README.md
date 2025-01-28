@@ -3,7 +3,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/d4t4s3c/RSAcrack?logoColor=yellow) ![GitHub forks](https://img.shields.io/github/forks/d4t4s3c/RSAcrack?logoColor=purple) ![GitHub watchers](https://img.shields.io/github/watchers/d4t4s3c/RSAcrack?logoColor=green)</br>
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/d4t4s3c/RSAcrack) ![GitHub contributors](https://img.shields.io/github/contributors/d4t4s3c/RSAcrack)
 
-Obtain the **passphrase** of a **private key (id_rsa)**, this tool uses the [ssh-keygen](https://manpages.ubuntu.com/manpages/noble/man1/ssh-keygen.1.html) binary to perform a **brute force attack** until a successful collision occurs.
+Obtain the **passphrase** of a **private key (id_rsa)**, this tool uses the [ssh-keygen](https://manpages.ubuntu.com/manpages/noble/man1/ssh-keygen.1.html){:target="_blank"} binary to perform a **brute force attack** until a successful collision occurs.
 
 ![](/img/img.png)
 
