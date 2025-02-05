@@ -1,12 +1,22 @@
 #!/bin/bash
 
-readonly RED="\e[91m"
-readonly GREEN="\e[92m"
-readonly YELLOW="\e[93m"
-readonly BLUE="\e[94m"
-readonly WHITE="\e[97m"
-readonly END="\e[0m"
-readonly SEPARATOR="─────────────────────────────"
+declare -A COLORS=(
+  [RED]="\e[91m"
+  [GREEN]="\e[92m"
+  [YELLOW]="\e[93m"
+  [GREY]="\e[90m"
+  [BLUE]="\e[94m"
+  [WHITE]="\e[97m"
+  [END]="\e[0m"
+)
+
+declare -A GLOBAL=(
+  [SEP]="─────────────────────────────"
+  [BOX1]="[+]"
+  [BOX2]="[-]"
+  [BOX3]="[*]"
+  [BOX4]="[!]"
+)
 
 trap ctrl_c INT
 
@@ -19,33 +29,33 @@ function dependencies(){
 
 function banner(){
   echo
-  echo -e "${GREEN} ╭━━━┳━━━┳━━━╮          ╭╮  ${END}"
-  echo -e "${GREEN} ┃╭━╮┃╭━╮┃╭━╮┃          ┃┃  ${END}"
-  echo -e "${GREEN} ┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮${END}"
-  echo -e "${GREEN} ┃╭╮╭┻━━╮┃╰━╯┃╭━┫╭┫╭╮┃╭━┫╰╯╯${END}"
-  echo -e "${GREEN} ┃┃┃╰┫╰━╯┃╭━╮┃╰━┫┃┃╭╮┃╰━┫╭╮╮${END}"
-  echo -e "${GREEN} ╰╯╰━┻━━━┻╯ ╰┻━━┻╯╰╯╰┻━━┻╯╰╯${END}"
-  echo -e "${SEPARATOR}"
-  echo -e " code: ${YELLOW}d4t4s3c${END}   ver: ${YELLOW}v1.0.0${END}"
-  echo -e "${SEPARATOR}"
+  echo -e "${COLORS[GREEN]} ╭━━━┳━━━┳━━━╮          ╭╮  ${COLORS[END]}"
+  echo -e "${COLORS[GREEN]} ┃╭━╮┃╭━╮┃╭━╮┃          ┃┃  ${COLORS[END]}"
+  echo -e "${COLORS[GREEN]} ┃╰━╯┃╰━━┫┃ ┃┣━━┳━┳━━┳━━┫┃╭╮${COLORS[END]}"
+  echo -e "${COLORS[GREEN]} ┃╭╮╭┻━━╮┃╰━╯┃╭━┫╭┫╭╮┃╭━┫╰╯╯${COLORS[END]}"
+  echo -e "${COLORS[GREEN]} ┃┃┃╰┫╰━╯┃╭━╮┃╰━┫┃┃╭╮┃╰━┫╭╮╮${COLORS[END]}"
+  echo -e "${COLORS[GREEN]} ╰╯╰━┻━━━┻╯ ╰┻━━┻╯╰╯╰┻━━┻╯╰╯${COLORS[END]}"
+  echo -e "${GLOBAL[SEP]}"
+  echo -e " ${COLORS[WHITE]}code: ${COLORS[GREY]}d4t4s3c   ${COLORS[WHITE]}ver: ${COLORS[GREY]}v1.0.0${COLORS[END]}"
+  echo -e "${GLOBAL[SEP]}"
 }
 
 function help(){
-  echo -e "\n ❓  Usage: RSAcrack [OPTIONS]\n"
-  echo -e " 🌐  Get the passphrase of a private key (id_rsa).\n"
-  echo -e " 📋  Options:"
-  echo -e "       -k <KEY>       Specify the path where the id_rsa key is located."
-  echo -e "       -w <WORDLIST>  Specify the path where the wordlist is located."
-  echo -e "       -h             Display this help message and exit.\n"
-  echo -e " 💡  Examples:"
-  echo -e "       RSAcrack -k id_rsa -w rockyou.txt"
-  echo -e "       RSAcrack -h \n"
-  echo -e "${SEPARATOR}\n"
+  echo -e "\n Usage: ${COLORS[GREEN]}RSAcrack ${COLORS[RED]}[OPTIONS]${COLORS[END]}\n"
+  echo -e "   Get the passphrase of a private key (id_rsa).\n"
+  echo -e " Options:"
+  echo -e "   ${COLORS[GREEN]}-k ${COLORS[RED]}<KEY>${COLORS[END]}       Specify the path where the id_rsa key is located."
+  echo -e "   ${COLORS[GREEN]}-w ${COLORS[RED]}<WORDLIST>${COLORS[END]}  Specify the path where the wordlist is located."
+  echo -e "   ${COLORS[GREEN]}-h ${COLORS[RED]}<HELP>${COLORS[END]}      Display this help message and exit.\n"
+  echo -e " Examples:"
+  echo -e "   ${COLORS[GREEN]}RSAcrack -k id_rsa -w rockyou.txt${COLORS[END]}"
+  echo -e "   ${COLORS[GREEN]}RSAcrack -h${COLORS[END]}\n"
+  echo -e "${GLOBAL[SEP]}\n"
 }
 
 function info(){
-  echo -e "🎯 Cracking | ${BLUE}${KEY}${END}"
-  echo -e "📖 Wordlist | ${BLUE}${WORDLIST}${END}"
+  echo -e "${COLORS[YELLOW]}${GLOBAL[BOX4]} ${COLORS[WHITE]}Cracking | ${COLORS[YELLOW]}${KEY}${COLORS[END]}"
+  echo -e "${COLORS[YELLOW]}${GLOBAL[BOX4]} ${COLORS[WHITE]}Wordlist | ${COLORS[YELLOW]}${WORDLIST}${COLORS[END]}"
 }
 
 function ctrl_c(){
@@ -79,17 +89,17 @@ SIZ="${BASH_REMATCH[1]}"
 while IFS= read -r PASSWORD; do
   LINE=$((LINE + 1))
   PROGRESS=$((LINE * 100 / SIZ))
-  echo -ne "\e[?25l\r\033[K🔎 Status   | ${YELLOW}${LINE}/${SIZ}/${PROGRESS}%/${PASSWORD}${END}"
+  echo -ne "\e[?25l\r\033[K${COLORS[BLUE]}${GLOBAL[BOX3]} ${COLORS[WHITE]}Status   | ${COLORS[BLUE]}${LINE}/${SIZ}/${PROGRESS}%/${PASSWORD}${COLORS[END]}"
   ssh-keygen -y -f ${KEY} -P ${PASSWORD} &>/dev/null
   if [ $? -eq 0 ]; then
-    echo -e "\n💥 Password | $GREEN$PASSWORD$RED$END"
-    echo -e "${SEPARATOR}\n"
+    echo -e "\n${COLORS[GREEN]}${GLOBAL[BOX1]} ${COLORS[WHITE]}Password | ${COLORS[GREEN]}${PASSWORD}${COLORS[END]}"
+    echo -e "${GLOBAL[SEP]}\n"
     sleep 2
     tput cnorm
     exit 0
   fi
 done < ${WORDLIST}
-echo -e "\n❗ Fuck!    | ${RED}Password not found${END}"
+echo -e "\n${COLORS[RED]}${GLOBAL[BOX2]} ${COLORS[WHITE]}Fuck!    | ${COLORS[RED]}Password not found${COLROS[END]}"
 echo -e "${SEPARATOR}\n"
 sleep 2
 tput cnorm
