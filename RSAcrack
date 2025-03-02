@@ -15,7 +15,7 @@ declare -A GLOBAL=(
   [BOX1]="[+]"
   [BOX2]="[-]"
   [BOX3]="[*]"
-  [BOX4]="[!]"
+  [BOX4]="[i]"
 )
 
 trap ctrl_c INT
