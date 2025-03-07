@@ -100,7 +100,7 @@ while IFS= read -r PASSWORD; do
   fi
 done < ${WORDLIST}
 echo -e "\n${COLORS[RED]}${GLOBAL[BOX2]} ${COLORS[WHITE]}Fuck!    | ${COLORS[RED]}Password not found${COLROS[END]}"
-echo -e "${SEPARATOR}\n"
+echo -e "${GLOBAL[SEP]}\n"
 sleep 2
 tput cnorm
 exit 0
