@@ -32,7 +32,7 @@ RSAcrack -k <KEY> -w <WORDLIST>
 
 | Key Generated | Cracking Speed     |
 |---------------|--------------------|
-| [OpenSSL](https://www.openssl.org/)       | :heavy_check_mark: |
-| ssh-keygen    | :x:                |
-| PuTTYgen      | :heavy_check_mark: |
-| 8gwifi        | :heavy_check_mark: |
+| [OpenSSL](https://linux.die.net/man/1/openssl) | :heavy_check_mark: |
+| [ssh-keygen](https://linux.die.net/man/1/ssh-keygen) | :x: |
+| [PuTTYgen](https://linux.die.net/man/1/puttygen) | :heavy_check_mark: |
+| [8gwifi](https://8gwifi.org/sshfunctions.jsp) | :heavy_check_mark: |
