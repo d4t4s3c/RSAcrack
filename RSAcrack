@@ -54,8 +54,8 @@ function help(){
 }
 
 function info(){
-  echo -e "${COLORS[YELLOW]}${GLOBAL[BOX4]} ${COLORS[WHITE]}Cracking | ${COLORS[YELLOW]}${KEY}${COLORS[END]}"
-  echo -e "${COLORS[YELLOW]}${GLOBAL[BOX4]} ${COLORS[WHITE]}Wordlist | ${COLORS[YELLOW]}${WORDLIST}${COLORS[END]}"
+  echo -e "${COLORS[YELLOW]}${GLOBAL[BOX4]} ${COLORS[WHITE]}Cracking:   ${COLORS[YELLOW]}${KEY}${COLORS[END]}"
+  echo -e "${COLORS[YELLOW]}${GLOBAL[BOX4]} ${COLORS[WHITE]}Wordlist:   ${COLORS[YELLOW]}${WORDLIST}${COLORS[END]}"
 }
 
 function ctrl_c(){
@@ -89,17 +89,17 @@ SIZ="${BASH_REMATCH[1]}"
 while IFS= read -r PASSWORD; do
   LINE=$((LINE + 1))
   PROGRESS=$((LINE * 100 / SIZ))
-  echo -ne "\e[?25l\r\033[K${COLORS[BLUE]}${GLOBAL[BOX3]} ${COLORS[WHITE]}Status   | ${COLORS[BLUE]}${LINE}/${SIZ}/${PROGRESS}%/${PASSWORD}${COLORS[END]}"
+  echo -ne "\e[?25l\r\033[K${COLORS[BLUE]}${GLOBAL[BOX3]} ${COLORS[WHITE]}Progress:   ${COLORS[BLUE]}${LINE}/${SIZ}/${PROGRESS}%/${PASSWORD}${COLORS[END]}"
   ssh-keygen -y -f ${KEY} -P ${PASSWORD} &>/dev/null
   if [ $? -eq 0 ]; then
-    echo -e "\n${COLORS[GREEN]}${GLOBAL[BOX1]} ${COLORS[WHITE]}Password | ${COLORS[GREEN]}${PASSWORD}${COLORS[END]}"
+    echo -e "\n${COLORS[GREEN]}${GLOBAL[BOX1]} ${COLORS[WHITE]}Passphrase: ${COLORS[GREEN]}${PASSWORD}${COLORS[END]}"
     echo -e "${GLOBAL[SEP]}\n"
     sleep 2
     tput cnorm
     exit 0
   fi
 done < ${WORDLIST}
-echo -e "\n${COLORS[RED]}${GLOBAL[BOX2]} ${COLORS[WHITE]}Fuck!    | ${COLORS[RED]}Password not found${COLORS[END]}"
+echo -e "\n${COLORS[RED]}${GLOBAL[BOX2]} ${COLORS[WHITE]}Fuck!       ${COLORS[RED]}Passphrase not found${COLORS[END]}"
 echo -e "${GLOBAL[SEP]}\n"
 sleep 2
 tput cnorm
