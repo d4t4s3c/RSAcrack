@@ -25,7 +25,7 @@ wget --no-check-certificate -q "https://raw.githubusercontent.com/d4t4s3c/RSAcra
 ### Usage
 
 ```cmd
-RSAcrack -k <KEY> -w <WORDLIST>
+RSAcrack -w <WORDLIST> -k <KEY> 
 ```
 
 > [!WARNING]
