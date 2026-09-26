@@ -5,7 +5,8 @@
 
 ### Overview
 
-If you have a **private key (id_rsa)** protected by a **passphrase** and you want to obtain the **password**, `RSAcrack` will attempt to obtain the **public key** with the [[ssh-keygen](https://manpages.ubuntu.com/manpages/noble/man1/ssh-keygen.1.html)] binary, performing a **brute force** attack until a successful collision occurs.
+If you have an **RSA private key (`id_rsa`) protected by a passphrase** and need to recover it, `RSAcrack` attempts to identify the correct passphrase by leveraging the [`ssh-keygen`](https://manpages.ubuntu.com/manpages/noble/man1/ssh-keygen.1.html) binary to validate candidate passwords through a **brute-force attack**. The process continues until the correct passphrase is found or all candidates have been exhausted.
+
 
 ![](/img/img.png)
 
